@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        //JSON深拷贝不能复制方法
+        const school = {
+            name:"sgg",
+            xueke: ['前端','Java','大数据','运维'],
+            improve: function(){
+                console.log("我可以提高你们")
+            }
+        };
+        //将json对象转为json格式字符串 
+        let str = JSON.stringify(school);
+        //在将 JSON 字符串转为 JS 对象
+        let newSchool = JSON.parse(str);
+        NewSchool.xueke[0] = 'H5';
+        console.log(school);
+        console.log(newSchool);//里面没有improve()方法 
+        //浅拷贝和深拷贝的区别在于是否真正获取一个对象的复制实体而不是引用
+
+        const school = {
+            name:"sgg",
+            xueke: ['前端','Java','大数据','运维'],
+            improve: function(){
+                console.log("我可以提高你们")
+            }
+        };
+        let str = JSON.stringify(school);
+        //改了第二个 第一个没改
+        let newSchool = JSON.parse(str);
+        NewSchool.xueke[0] = 'H5';
+        console.log(school);
+        console.log(newSchool)
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link crossorigin="anonymous" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet">
+    <style>
+     
+    </style>
+</head>
+
+<body>
+    <script>
+        "use strict";
+      function * gen(arg){
+          console.log(arg);
+         let res1 = yield 111;
+         console.log(res1); //当下一个next执行的时候才执行 如果没传参是
+                            //undefined BBB的值x下一个有next方法传的实参决定
+         let res2 =  yield 222;
+         console.log(res2);// CCC  第二个yield的结果 由第三个next 传的实参决定
+        let res3 =  yield 333; 
+        console.log(res3); //DDD 由第四个next决定
+      
+        }
+        let ieterator =gen("aaa");//传递一个参数
+        //  aaa 返回一个对象{value 111 done false}  如果第二个nextt没传参是undefined 传参了是BBB
+        console.log(ieterator.next());
+        //  {value 222  done false} CCC
+        console.log(ieterator.next("BBB"));//这里可以传递参数
+        //{value 333 done false} DDD
+        console.log(ieterator.next("CCC"))
+      //   {value undefined false true} undefined
+        console.log(ieterator.next('DDD'))
+        //
+       for  (let v of gen){
+            console.log(v); // 111 222 333 可以用for of 遍历
+        }
+
+
+        function * gen(arg){
+            console.log(arg);
+            //yield 的语句有返回结果, 返回结果由下一个 next 方法的实参决定
+            let res1 = yield 111;
+            console.log(res1);
+            let res2 = yield 222;
+            console.log(res2);
+            let res3 = yield 333;
+            console.log(res3);
+        }
+
+        //获取迭代器对象
+        let iterator = gen('AAA');
+        console.log(iterator.next());
+        console.log(iterator.next('BBB'));
+        console.log(iterator.next('CCC'));
+        console.log(iterator.next('DDD'));
+
+    
+       
+    </script>
+</body>
+
+</html>

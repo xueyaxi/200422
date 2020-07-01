@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link crossorigin="anonymous" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet">
+    <style>
+      
+    </style>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        function * gen(){
+            console.log('1');
+            yield "--";
+            console.log('2')
+            yield "&&&&";
+            console.log('3')
+            //相当于3个分隔符
+        }
+        let ieterator =gen();//这一步代码没执行 通过Next执行
+        //原型上有next方法
+        // {1value ---  done false}  迭代器对象.next()的结果还是个对象
+        console.log(ieterator.next());
+        // 2 value &&&  done false
+        console.log(ieterator.next());
+        // 3 value undefined done true
+        console.log(ieterator.next())
+
+
+
+
+           //生成器函数  
+           function * gen(){
+            console.log("测试11");
+            yield "怎么样"; 
+            console.log("测试2");
+            yield "很酷吧";
+            console.log("测试3");
+        }
+
+        //调用生成器函数   gen调用以后代码不会立即执行
+        let iterator = gen();
+
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+
+
+              //因为有Symbol.iterator接口可以用for of遍历
+       for  (let v of gen){
+            console.log(v); // 可以用for of 遍历
+        }
+       
+    </script>
+</body>
+
+</html>
+      
+
+       
+    </script>
+</body>
+
+</html>

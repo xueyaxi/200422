@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link crossorigin="anonymous" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet">
+    <style>
+     
+    </style>
+</head>
+
+<body>
+    <script>
+        //map  键的范围不限于字符串 对象可以内部实现了iterator接口
+        let m = new Map();
+        //用set()方法添加 键名键值
+        m.set('school','sgg')
+        //键名键值可以是对象或者数组
+        let key = {name:'sgg'}
+        m.set(key,['bj','tj'])
+        //get方法获取
+        let  name = m.get('school')
+        let citys = m.get(key) // 不能写{name:"sgg"}因为这个是一个新的对象了
+        //
+        m.has('school');
+        m.clear();
+        //
+        for(let v of m){
+            console.log(v) //很多数组数组 数组里第一个参数是键名 键值
+        }
+     
+          //创建一个 Map
+        //  let m = new Map();
+        //1. set 方法添加 
+     //   m.set('school','尚硅谷');
+    //    let key = {name:'atguigu'};
+        //m.set(key, ['北京','上海','深圳']);
+        //2. get 方法获取 
+        // let name = m.get('school');
+        // let cities = m.get(key);
+        // console.log(cities);
+        //3. has 检测键名 
+        // console.log(m.has('school'));
+        //4. clear 清空 
+        // m.clear();
+        // console.log(m);
+        //5. 使用 for...of遍历  
+        // for(let v of m){
+        //     console.log(v);
+        // }
+
+
+       
+    </script>
+</body>
+
+</html>

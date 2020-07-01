@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //为对象添加属性 total 总数以及 avg 平均数
+        //添加Symbol。iterator属性 for of 遍历stus中的数据
+        let ours = {
+            name:'h5200422',
+            stus: [
+                {name:'志强',score:88},
+                {name:'文娟',score:90},
+                {name:'艳萍',score:97},
+                {name:'田静',score:86},
+                {name:'王伟',score:92},
+            ]
+        };
+        Object.defineProperties(ours,{
+          
+            total: {
+               get:function(){
+                   let t = 0;
+                   this.stus.forEach(i =>{
+                       t += i.score;
+                   })
+                   return t;
+               }
+            },
+            avg: {
+                get: function(){
+                    var avg = this.total / this.stus.length;
+                    return avg;
+                }
+            },
+             //Symbol.iterator是一个方法  数组[Symbol.iterator]（）返回一个迭代器 迭代器是一个对象 
+        // 迭代器有个next（）方法  迭代器.next（）方法返回的还是个对象 
+        //对象中有done属性和value属性
+            [Symbol.iterator]:{
+                get:function(){
+                    return {
+                        next:()=>{
+                            //对象中有done属性和value属性
+                            var index = 0;
+                            if(index < this.stus.length){
+                                index++;
+                                return {value:this.stus[index],done:false};
+                            }else{
+                                return {vlaue:undefined,done:true}
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        console.log(ours.total);
+        console.log(ours.avg);
+        // for(let v of ours.stus) {
+        //     console.log(v);
+        // }
+        var iterator = ours.stus[Symbol.iterator]();
+        console.log(iterator.next());
+        console.log(iterator.next()); 
+        console.log(iterator.next()); 
+        console.log(iterator.next());
+        console.log(iterator.next()); 
+        console.log(iterator.next()); 
+
+
+    </script>
+</body>
+</html>

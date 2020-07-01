@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象继承</title>
+</head>
+
+<body>
+    <script>
+       //构造函数的继承
+        // function Phone(brand, price){
+        //     this.brand = brand;
+        //     this.price = price;
+        // }
+        // //在原型上添加方法
+        // Phone.prototype.call = function(){
+        //     console.log('我可以打电话...');
+        // }
+
+        // function SmartPhone(brand, price, color, size) {
+        //     //父类的函数名.call函数初始化 this指向的是子类的this
+        //     Phone.call(this, brand, price);
+        //     //子类属性初始化
+        //     this.color = color;
+        //     this.size = size;
+        // }
+
+        // //设置元素
+        // //子类的原型指向父类的实例 //这里为什么不加（）？
+        // SmartPhone.prototype = new Phone();
+        // //子类的构造函数指向自己
+        // SmartPhone.prototype.constructor = SmartPhone;
+
+        // //设置子类方法
+        // SmartPhone.prototype.photo = function(){
+        //     console.log("我可以拍照")
+        // }
+
+        // SmartPhone.prototype.learn = function(){
+        //     console.log("我还可以用来学习!!");
+        // }
+
+        // //实例化
+        // let huawei = new SmartPhone('华为P30', 5999, 'black','5.5inch');
+
+        // huawei.learn();
+        // huawei.call();//可以继承父类的方法也可以调用自己的方法
+        // huawei.photo();
+
+
+        //---------------------
+        function Phone(brand,price){
+            this.brand = brand;
+            this.price = price;
+        }
+        Phone.prototype.call = function(){
+            console.log("call");
+        }
+
+        function Newphone(brand,price,star){
+            Phone.call(this,brand,price);
+            this.star = star;
+        }
+        Newphone.prototype = new Phone();
+        Newphone.prototype.constructor=Newphone;
+
+        Newphone.prototype.photo = function(){
+            console.log("拍照更清晰的");
+        }
+        var Oppo = new Newphone("OPPO",3000,"zjj");
+        Oppo.call();
+        Oppo.photo();
+
+    </script>
+</body>
+
+</html>

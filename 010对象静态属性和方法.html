@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        //静态成员
+    //     function Phone(){
+    //     }
+    //     //以这种方式添加的属性和方法是静态的
+    //     //实例对象不可以调用
+    //     Phone.name = '手机';
+    //     Phone.change = function(){
+    //         console.log("----");
+    //     }
+    //     //实例对象
+    //     let s = new Phone();
+    //   //  console.log(s.name);//undefined
+    //   //静态属性和静态方法有什么用？？
+
+
+      //  class 中声明静态成员
+        class Phone{
+            //构造方法
+            constructor(brand, price){
+                  this.brand = brand;
+                  this.price = price;
+            }
+            call(){
+                console.log("********")
+            }
+            //声明静态成员
+            static change(){
+                console.log('我可以改变世界');
+            }
+        }
+
+        Phone.change();
+        //实例化
+        let s = new Phone('xxx', 200);
+       // s.change();//类的静态方法实例不可以调用 只能类本身调用
+
+
+    //静态成员
+    //     function Phone(){
+    //     }
+    //     //以这种方式添加的属性和方法是静态的
+    //     //实例对象不可以调用
+    //     Phone.name = '手机';
+    //     Phone.change = function(){
+    //         console.log("----");
+    //     }
+    //     //实例对象
+    //     let s = new Phone();
+    //   //  console.log(s.name);//undefined
+    //   //静态属性和静态方法有什么用？？
+
+
+      //  class 中声明静态成员
+    //   class Phone{
+    //         //构造方法
+    //         constructor(brand, price){
+    //             this.brand = brand;
+    //             this.price = price;
+    //         }
+    //         call(){
+    //         }
+    //         //声明静态成员
+    //         static change(){
+    //             console.log('我可以改变世界');
+    //         }
+    //     }
+
+    //     Phone.change();
+    //     //实例化
+    //     let s = new Phone('小米', 200);
+    //    // s.change();
+
+
+
+        
+    </script>
+</body>
+</html>

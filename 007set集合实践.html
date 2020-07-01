@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link crossorigin="anonymous" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet">
+    <style>
+     
+    </style>
+</head>
+
+<body>
+    <script>
+         let arr = [1,2,3,4,5];
+     //1,数组去重
+     let newarr = new Set(arr);
+     //但是是set类型 把他变成数组
+     let Arr = [...newarr];//[1,2,3,4,5]
+     //2,交集
+     let arr2 = [3,4,5,6,7,8]
+     let inter = Arr.filter(function(item){
+         let s = new Set(arr2);
+         //检测集合
+        return s.has(item)
+
+     })
+     console.log(inter);
+     //并集
+     let union = [...new Set([...arr,...arr2])]
+     console.log(union);
+     //差集
+    
+     let diff = Arr.filter(function(item){  
+    let s = new Set(arr2);
+        if(s.has(item)){
+            return false;
+        }else{
+            return true;
+        }
+     })
+     console.log(diff);
+
+    //  let arr = [3,4,3,2,1,4,5,2];
+    //  //1,数组去重
+    //  let newarr = new Set(arr);
+    //  //但是是set类型 把他变成数组
+    //  let Arr = [...newsarr];//[1,2,3,4,5]
+    //  //2,交集
+    //  let arr2 = [3,4,5]
+    //  let inter = Arr.filter(function(item){
+    //      let s = new Set(arr2);
+    //      //检测集合
+    //     return s.has(item)
+    //    // 简化
+    //     let inter = [...new Set(arr)].filter(item => (new Set(arr2)).has(item))
+    //  //   3, 并集
+    //     let union = [...new Set([...arr, ...arr2])];        
+    //   //  4, 差集
+    //     let diff = [...new Set(arr)].filter(function(item){
+    //         let s2 = new Set(arr2);
+    //         if(s2.has(item)){
+    //             return false;
+    //         }else{
+    //             return true;
+    //         }
+    //     });
+    //     //简化
+    //     let diff = [...new Set(arr)].filter(item => !((new Set(arr2)).has(item)))
+       
+       
+    </script>
+</body>
+
+</html>

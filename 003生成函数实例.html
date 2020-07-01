@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link crossorigin="anonymous" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet">
+    <style>
+     
+    </style>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        //异步编程
+        //控制台 1s后输出111 2s后 输出222 3s后输出333
+        //回调不断套回调叫回调地狱  代码越陷越深
+        setTimeout(()=>{
+            console.log(111);
+            setTimeout(()=>{
+                console.log(222)
+                setTimeout(()=>{
+                    console.log(333);
+                },3000)
+            },2000)
+
+        },1000)
+
+        function one(){
+            setTimeout(()=>{
+                    console.log(111);
+                    iterator.next()
+                },1000)
+        }
+        function one(){
+            setTimeout(()=>{
+                    console.log(222);
+                    iterator.next()
+                },2000)
+        }
+     
+        function one(){
+            setTimeout(()=>{
+                    console.log(333);
+                    iterator.next();
+                },3000)
+        }
+
+        function * gen(){
+            yield one();
+            yield two();
+            yield three();
+        }
+     
+      let  iterator = gen();
+      // 111
+      //iterator.next();
+      //如何让第二个执行？  如果直接itreator 几乎是每隔一秒出一个
+      //--------------------------------
+
+
+       
+    </script>
+</body>
+
+</html>

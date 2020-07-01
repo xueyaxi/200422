@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅拷贝</title>
+</head>
+
+<body>
+    <script>
+          /*浅复制只会复制对象本身，不会复制对象的对象 当改了一个的时候 被复制的对象被改了的话说明是浅复制
+          当改了一个的时候 被复制的不变 说明深拷贝 
+        深复制不仅复制对象本身，也复制对象的属性
+        */
+        // 浅拷贝深拷贝 依据就是创建的新对象修改是否会影响原来的数据
+        //对象的复制浅拷贝
+       //  直接复制是浅拷贝因为指向的是同一个内存地址 一改都改 
+        // let school = {
+        //     name:"sgg",
+        //     cities: ['bj','sh','sz']
+        // };
+        // let newSchool = school;
+        // newSchool.name = 'ATGUIGU';
+        // console.log(newSchool);
+        // console.log(school);
+        //数组的浅拷贝  以下都是浅拷贝改了一个都改了
+            // 1concat
+            // let arr = [1,2，3{name:"atgu"}];
+            // let newArr = [].concat(arr);
+            // newArr[3].name = "尚硅谷";
+            // console.log(arr);
+            // console.log(newArr);
+
+            // 2slice 
+            // let arr = [1,2,3, {name:"atguigu"}];
+            // let newArr = arr.slice(0);    
+            // newArr[3].name = "尚硅谷";
+            // console.log(arr);
+            // console.log(newArr);
+
+            // 扩展运算符
+            // let arr = [1,2,3, {name:"atguigu"}];
+            // let newArr = [...arr];
+            // newArr[3].name = "尚硅谷";
+            // console.log(arr);
+            // console.log(newArr);
+        //对象的浅拷贝 Object.assign({},对象)
+            // let school = {
+            //     name: 'sgg',
+            //     xueke: ['前端','java','大数据','运维']
+            // };
+
+            // let newSchool = Object.assign({}, school);
+            // //基本类型的值 不可变 并不能说明什么
+            // // newSchool.name = 'ATGUIGU';
+            // // newSchool.xueke[0] = 'H5';
+            // //这个也是直接改值
+            // newSchool.xueke = '前端,Java,大数据';
+
+            // console.log(school);
+            // console.log(newSchool);
+//============================================
+
+        let school = {
+            name:"sgg",
+            cities: ['bj','sh','sz']
+        };
+        let newSchool = school;
+        newSchool.name = 'ATGUIGU';
+        //数组的浅拷贝 
+           // concat
+            let arr = [1,2,3,{name:"atgu"}];
+            let newArr = [].concat(arr);
+            newArr[3].name = "尚硅谷";
+           // slice 
+            let arr = [1,2,3, {name:"atguigu"}];
+            let newArr = arr.slice(0);    
+            newArr[3].name = "尚硅谷";
+            扩展运算符
+            let arr = [1,2,3, {name:"atguigu"}];
+            let newArr = [...arr];
+            newArr[3].name = "尚硅谷";
+       // 对象 Object.assign({},对象
+            let school = {
+                name: 'sgg',
+                xueke: ['前端','java','大数据','运维']
+            };
+
+            let newSchool = Object.assign({}, school);
+            //基本类型的值 不可变 并不能说明什么
+            // newSchool.name = 'ATGUIGU';
+            newSchool.xueke[0] = 'H5'; //证明是浅拷贝
+            //这个也是直接改值 不能说明什么
+            //newSchool.xueke = '前端,Java,大数据';
+
+            
+
+    </script>
+</body>
+
+</html>

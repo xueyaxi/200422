@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        // 通过构造函数创建对象
+        function Phone(brand, price) {
+            //初始化属性
+            this.brand = brand;
+            this.price = price;
+        }
+        // 设置原型上的方法
+        Phone.prototype.call = function (someone) {
+            console.log(`我可以给${someone}打电话`);
+        }
+        // 创建父类的实例对象
+        let chuizi = new Phone('锤子', 2499);
+        //调用原型上的方法
+        chuizi.call('白敬亭');    
+        console.log(chuizi)
+      //  声明一个类
+        class Phone2{
+            //构造方法 1. 构造方法的名字是固定的
+            constructor(brand, price){
+                this.brand = brand;
+                this.price = price;
+            }    
+
+            //声明方法
+            call(someone){
+                console.log(`我可以给${someone}打电话!!`);
+            }
+        }
+        //创建一个实例
+        let nokia = new Phone2('诺基亚',230);
+        //call方法为什么不能调用？？
+        nokia.call('华晨宇');
+        console.log(nokia);
+        //两种方式的原型上都有call方法
+
+    //        // 通过构造函数创建对象
+    //        function Phone(brand, price) {
+    //         //初始化属性
+    //         this.brand = brand;
+    //         this.price = price;
+    //     }
+    //     // 设置原型上的方法
+    //     Phone.prototype.call = function (someone) {
+    //         console.log(`我可以给${someone}打电话`);
+    //     }
+    //     // 创建父类的实例对象
+    //     let chuizi = new Phone('锤子', 2499);
+    //     //调用原型上的方法
+    //     chuizi.call('白敬亭');    
+    //     console.log(chuizi)
+    //   //  声明一个类
+    //     class Phone2{
+    //         //构造方法 1. 构造方法的名字是固定的
+    //         constructor(brand, price){
+    //             this.brand = brand;
+    //             this.price = price;
+    //         }    
+
+    //         //声明方法
+    //         call(someone){
+    //             console.log(`我可以给${someone}打电话!!`);
+    //         }
+    //     }
+    //     //创建一个实例
+    //     let nokia = new Phone2('一加',3200);
+    //     //call方法为什么不能调用？？
+    //     nokia.call('华晨宇');
+    //     console.log(nokia);
+
+
+    </script>
+</body>
+
+</html>

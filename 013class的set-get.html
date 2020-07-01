@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+</head>
+
+<body>
+    <script>
+        // Object.create Object.defineProperties(obj, {price: {set}})
+        //通过get或者set给元素设置属性 非静态属性 实例对象可以访问
+        class Phone{
+            get price(){
+                return 200;
+            }
+            set price(value){
+                console.log("price被设置了");
+            }
+
+            //函数对象属性的get和set控制 静态属性 执行函数对象访问
+            static get color(){
+                return 'red';
+            }
+
+            static set color(val){
+                console.log("color被设置了");
+            }
+        }
+        let s = new Phone();
+        console.log(s.price);
+        s.price = 2000;
+
+        //静态属性只能函数对象访问
+        // console.log(Phone.color);
+        Phone.color = "white";
+        //======================================
+        // class Phone{
+        //     get price(){
+        //         return 200;
+        //     }
+        //     set price(value){
+        //         console.log("price");
+        //     }
+        //     static get color(){
+        //         return 'red';
+        //     }
+        //     static set color(val){
+        //         console.log("color");
+        //     }
+        // }
+        // let s = new Phone();
+        // console.log(s.price);
+        // s.price = 2000;
+        // Phone.color = "red";
+
+
+    </script>
+</body>
+
+</html>
